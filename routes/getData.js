@@ -8,7 +8,7 @@ var data={
     'gyroscope': req.param("gyroscope"),
     'accelerometer': req.param("accelerometer")
 };
-    console.log("Details: "+JSON.stringify(data));
+    console.log("Details: "+req.body);
    var query="INSERT INTO sensordata (`temperature`, `humidity`, `pressure`, `gyroscope`, `accelerometer`) "+
     "VALUES('"+data.temperature+"', '"+data.humidity+"', '"+data.pressure+"', '"+data.gyroscope+"', '"+data.accelerometer+"')";
 
