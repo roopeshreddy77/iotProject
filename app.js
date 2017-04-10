@@ -27,7 +27,7 @@ app.use('/', index);
 app.get('/display',display.display);
 app.use('/users', users);
 
-app.get('/getData', getDataPointer.getData);
+app.post('/getData', getDataPointer.getData);
 
 app.get('/signup', function(req, res, next) {
   res.render('signup');
