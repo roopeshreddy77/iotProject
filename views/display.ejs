@@ -44,13 +44,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                <% for(var i=0;i<results.length;i++){%>
+                <% for(var i=0;i<results.table1.length;i++){%>
 
                 <tr>
-                    <td><%= results[i].temperature%></td>
-                    <td><%= results[i].pressure%></td>
-                    <td><%= results[i].humidity%></td>
-                    <td><%= results[i].lux%></td>
+                    <td><%= results.table1[i].pressure%></td>
+                    <td><%= results.table1[i].temperature%></td>
+                    <td><%= results.table1[i].humidity%></td>
+                    <td><%= results.table1[i].lux%></td>
                 </tr>
                 <%}%>
                 </tbody>
@@ -68,13 +68,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                <% for(var i=0;i<results.length;i++){%>
+                <% for(var i=0;i<results.table2.length;i++){%>
 
                 <tr>
-                    <td><%= results[i].temperature%></td>
-                    <td><%= results[i].pressure%></td>
-                    <td><%= results[i].humidity%></td>
-                    <td><%= results[i].lux%></td>
+                    <td><%= results.table2[i].temperature%></td>
+                    <td><%= results.table2[i].pressure%></td>
+                    <td><%= results.table2[i].humidity%></td>
+                    <td><%= results.table2[i].lux%></td>
                 </tr>
                 <%}%>
                 </tbody>
