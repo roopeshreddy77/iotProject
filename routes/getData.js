@@ -1,8 +1,14 @@
 var mysql=require('./mysql');
 exports.getData=function(req, res, next) {
   console.log("Details: "+JSON.stringify(req.body));
-   var query="INSERT INTO sensordata (`temperature`, `humidity`, `pressure`, `gyroscope`, `accelerometer`) "+
-    "VALUES('"+req.body.temperature+"', '"+req.body.humidity+"', '"+req.body.pressure+"', '"+req.body.gyroscope+"', '"+req.body.accelerometer+"')";
+if(req.body.device=='device1'){
+  var query="INSERT INTO sensordata (`temperature`, `pressure`, `humidity`, `lux`) "+
+   "VALUES('"+req.body.temperature+"', '"+req.body.pressure+"', '"+req.body.humidity+"', '"+req.body.lux+"')";
+}
+  else{
+    var query="INSERT INTO sensordata1 (`temperature`, `pressure`, `humidity`, `lux`) "+
+     "VALUES('"+req.body.temperature+"', '"+req.body.pressure+"', '"+req.body.humidity+"', '"+req.body.lux+"')";
+  }
 
     mysql.fetchData(function(err, results) {
         if (err) {
