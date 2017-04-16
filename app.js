@@ -41,6 +41,14 @@ app.get('/dashboard', function(req, res, next) {
   res.render('dashboard');
 });
 
+app.get('/devices', function(req, res, next){
+  res.render('devices');
+});
+
+app.get('/newdevice', function(req, res, next){
+  res.render('newdevice');
+})
+
 
 
 // catch 404 and forward to error handler
