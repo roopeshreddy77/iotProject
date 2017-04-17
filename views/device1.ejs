@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Secured Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- styles -->
+    <link href="/stylesheets/styles.css" rel="stylesheet">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="login-bg">
+<div class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Logo -->
+                <div class="logo">
+                    <h1><a href="#">Smart Secured Home</a></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="temperature">
+
+
+</div>
+
+<script>
+
+var final=[];
+
+var temp2=[];
+var temp3=[];
+var temp4=[];
+var count=0;
+<% for(var i=0;i<results.table1.length;i++){%>
+  var temp=[];
+
+
+temp.push(count);
+temp.push(<%=results.table1[i].pressure%>);
+final.push(temp);
+temp2.push(<%=results.table1[i].temperature%>);
+temp3.push(<%=results.table1[i].humidity%>);
+temp4.push(<%=results.table1[i].lux%>);
+count++;
+<%}%>
+
+
+
+Highcharts.chart('temperature', {
+
+    title: {
+        text: 'Temperature Graph'
+    },
+
+
+    yAxis: {
+        title: {
+            text: 'Temperature'
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+        series: {
+            pointStart: 1
+        }
+    },
+
+    series: [{
+        name: 'Installation',
+        data: final
+    }
+    // , {
+    //     name: 'Manufacturing',
+    //     data: temp2
+    // }, {
+    //     name: 'Sales & Distribution',
+    //     data: temp3
+    // }, {
+    //     name: 'Project Development',
+    //     data: temp4
+    // }
+  ]
+
+});
+</script>
+
+
+
+
+
+</body>
