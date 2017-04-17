@@ -7,6 +7,8 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <!-- styles -->
     <link href="/stylesheets/styles.css" rel="stylesheet">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,5 +31,189 @@
         </div>
     </div>
 </div>
+
+<div id="temperature">
+
+
+</div>
+
+<div id="pressure">
+
+
+</div>
+
+<div id="humidity">
+
+
+</div>
+
+<div id="luminous">
+
+
+</div>
+
+<script>
+
+var temp1=[];
+
+var temp2=[];
+var temp3=[];
+var temp4=[];
+var count=0;
+<% for(var i=0;i<results.table2.length;i++){%>
+  var temp=[];
+  var press=[];
+  var hum=[];
+  var lu=[];
+
+temp.push(count);
+temp.push(<%=results.table2[i].temperature%>);
+temp1.push(temp);
+press.push(count);
+press.push(<%=results.table2[i].pressure%>);
+temp2.push(press);
+hum.push(count);
+hum.push(<%=results.table2[i].humidity%>);
+temp3.push(hum);
+lu.push(count);
+lu.push(<%=results.table2[i].lux%>);
+temp4.push(lu);
+count++;
+<%}%>
+
+
+
+Highcharts.chart('temperature', {
+
+    title: {
+        text: 'Temperature Graph'
+    },
+
+
+    yAxis: {
+        title: {
+            text: 'Temperature'
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+        series: {
+            pointStart: 1
+        }
+    },
+
+    series: [{
+        name: 'Installation',
+        data: temp1
+    }
+
+  ]
+
+});
+
+Highcharts.chart('pressure', {
+
+    title: {
+        text: 'Pressure Graph'
+    },
+
+
+    yAxis: {
+        title: {
+            text: 'Pressure'
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+        series: {
+            pointStart: 1
+        }
+    },
+
+    series: [{
+        name: 'Installation',
+        data: temp2
+    }
+
+  ]
+
+});
+
+Highcharts.chart('humidity', {
+
+    title: {
+        text: 'Humidity Graph'
+    },
+
+
+    yAxis: {
+        title: {
+            text: 'Humidity'
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+        series: {
+            pointStart: 1
+        }
+    },
+
+    series: [{
+        name: 'Installation',
+        data: temp3
+    }
+
+  ]
+
+});
+
+Highcharts.chart('luminous', {
+
+    title: {
+        text: 'Luminous Intensity Graph'
+    },
+
+
+    yAxis: {
+        title: {
+            text: 'Luminous Intensity'
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+        series: {
+            pointStart: 1
+        }
+    },
+
+    series: [{
+        name: 'Installation',
+        data: temp4
+    }
+
+  ]
+
+});
+</script>
 
 </body>

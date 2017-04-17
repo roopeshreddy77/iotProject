@@ -39,9 +39,24 @@
 
 </div>
 
+<div id="pressure">
+
+
+</div>
+
+<div id="humidity">
+
+
+</div>
+
+<div id="luminous">
+
+
+</div>
+
 <script>
 
-var final=[];
+var temp1=[];
 
 var temp2=[];
 var temp3=[];
@@ -49,14 +64,22 @@ var temp4=[];
 var count=0;
 <% for(var i=0;i<results.table1.length;i++){%>
   var temp=[];
-
+  var press=[];
+  var hum=[];
+  var lu=[];
 
 temp.push(count);
-temp.push(<%=results.table1[i].pressure%>);
-final.push(temp);
-temp2.push(<%=results.table1[i].temperature%>);
-temp3.push(<%=results.table1[i].humidity%>);
-temp4.push(<%=results.table1[i].lux%>);
+temp.push(<%=results.table1[i].temperature%>);
+temp1.push(temp);
+press.push(count);
+press.push(<%=results.table1[i].pressure%>);
+temp2.push(press);
+hum.push(count);
+hum.push(<%=results.table1[i].humidity%>);
+temp3.push(hum);
+lu.push(count);
+lu.push(<%=results.table1[i].lux%>);
+temp4.push(lu);
 count++;
 <%}%>
 
@@ -88,18 +111,108 @@ Highcharts.chart('temperature', {
 
     series: [{
         name: 'Installation',
-        data: final
+        data: temp1
     }
-    // , {
-    //     name: 'Manufacturing',
-    //     data: temp2
-    // }, {
-    //     name: 'Sales & Distribution',
-    //     data: temp3
-    // }, {
-    //     name: 'Project Development',
-    //     data: temp4
-    // }
+
+  ]
+
+});
+
+Highcharts.chart('pressure', {
+
+    title: {
+        text: 'Pressure Graph'
+    },
+
+
+    yAxis: {
+        title: {
+            text: 'Pressure'
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+        series: {
+            pointStart: 1
+        }
+    },
+
+    series: [{
+        name: 'Installation',
+        data: temp2
+    }
+
+  ]
+
+});
+
+Highcharts.chart('humidity', {
+
+    title: {
+        text: 'Humidity Graph'
+    },
+
+
+    yAxis: {
+        title: {
+            text: 'Humidity'
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+        series: {
+            pointStart: 1
+        }
+    },
+
+    series: [{
+        name: 'Installation',
+        data: temp3
+    }
+
+  ]
+
+});
+
+Highcharts.chart('luminous', {
+
+    title: {
+        text: 'Luminous Intensity Graph'
+    },
+
+
+    yAxis: {
+        title: {
+            text: 'Luminous Intensity'
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+        series: {
+            pointStart: 1
+        }
+    },
+
+    series: [{
+        name: 'Installation',
+        data: temp4
+    }
+
   ]
 
 });

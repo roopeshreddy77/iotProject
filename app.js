@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var display=require('./routes/display');
 var device1=require('./routes/device1');
+var device2=require('./routes/device2');
 var users = require('./routes/users');
 var getDataPointer=require('./routes/getData');
 var app = express();
@@ -27,6 +28,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.get('/display',display.display);
 app.get('/device1',device1.device1);
+app.get('/device2',device2.device2);
+
+
 
 app.use('/users', users);
 
