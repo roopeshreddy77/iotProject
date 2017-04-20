@@ -33,26 +33,40 @@
     </div>
 </div>
 
+<div class="row">
+  <div class="col-md-6">
+    <div id="temperature">
 
-<div id="temperature">
+
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div id="pressure">
 
 
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div id="humidity">
+
+
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div id="luminous">
+
+
+    </div>
+  </div>
 </div>
 
-<div id="pressure">
 
 
-</div>
-
-<div id="humidity">
 
 
-</div>
-
-<div id="luminous">
 
 
-</div>
+
 
 <script>
 
@@ -62,7 +76,7 @@ var temp2=[];
 var temp3=[];
 var temp4=[];
 var count=0;
-<% for(var i=0;i<results.table1.length;i++){%>
+<% for(var i=results.table1.length-10;i<results.table1.length;i++){%>
   var temp=[];
   var press=[];
   var hum=[];
@@ -88,7 +102,7 @@ count++;
 Highcharts.chart('temperature', {
 
     title: {
-        text: 'Temperature Graph'
+        text: 'Temperature Chart (Degree Celsius)'
     },
 
 
@@ -121,7 +135,7 @@ Highcharts.chart('temperature', {
 Highcharts.chart('pressure', {
 
     title: {
-        text: 'Pressure Graph'
+        text: 'Barometer Chart (mBar)'
     },
 
 
@@ -154,7 +168,7 @@ Highcharts.chart('pressure', {
 Highcharts.chart('humidity', {
 
     title: {
-        text: 'Humidity Graph'
+        text: 'Humidity Chart (%rH)'
     },
 
 
@@ -187,7 +201,7 @@ Highcharts.chart('humidity', {
 Highcharts.chart('luminous', {
 
     title: {
-        text: 'Luminous Intensity Graph'
+        text: 'Luxometer Chart (Lux)'
     },
 
 
@@ -217,9 +231,5 @@ Highcharts.chart('luminous', {
 
 });
 </script>
-
-
-
-
 
 </body>
