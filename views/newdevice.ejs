@@ -44,9 +44,26 @@
                 </ul>
             </div>
         </div>
-        <form action="http://67.160.248.132:5500/uploader" method="post">
-          Select a file: <input type="file" name="img">
-          <input type="submit">
-        </form>
+        <div>
+          <input type="text" id="mn" placeholder="Mesh Name"></input><br/>
+          <input type="text" id="mi" placeholder="Mesh ID"></input><br/>
+          <input type="text" id="mk" placeholder="Mesh Key"></input><br/><br/>
+          <button onclick="myFunction()">Submit</button>
+        </div>
+
     </div>
 </div>
+<script>
+function myFunction() {
+    console.log("Text");
+    var mn=document.getElementById("mn").value;
+    var mi=document.getElementById("mi").value;
+    var mk=document.getElementById("mk").value;
+    var url="http://localhost:8080/?mesh-name="+mn+"&mesh-id="+mi+"mesh-key"+mk;
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET",url, true);
+    xhr.send();
+}
+</script>
+</body>
+</html>

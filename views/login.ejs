@@ -36,11 +36,13 @@
                 <div class="box">
                     <div class="content-wrap">
                         <h6>Sign In</h6>
-                        <input class="form-control" type="text" placeholder="E-mail address">
-                        <input class="form-control" type="password" placeholder="Password">
-                        <div class="action">
-                            <a class="btn btn-primary signup" href="/dashboard">Login</a>
-                        </div>
+                        <form>
+                          <input class="form-control" type="text" name="userid" placeholder="E-mail address">
+                          <input class="form-control" type="password" name="password" placeholder="Password">
+                          <input type="submit" value="Login" class="btn btn-primary" onclick="check(this.form)">
+                        </form>
+
+
                     </div>
                 </div>
 
@@ -52,6 +54,21 @@
         </div>
     </div>
 </div>
+
+<script language="javascript">
+			function check(form)/*function to check userid & password*/
+			{
+ 				/*the following code checkes whether the entered userid and password are matching*/
+ 				if(form.userid.value == "admin" && form.password.value == "admin")
+  				{
+   					window.open('/dashboard')/*opens the target page while Id & password matches*/
+   				}
+ 				else
+ 				{
+  					alert("Error Password or Username")/*displays error message*/
+  				}
+			}
+		</script>
 
 
 
