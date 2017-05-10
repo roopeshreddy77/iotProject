@@ -47,11 +47,11 @@
                 </tr>
                 </thead>
                 <tbody>
-                <% for(var i=0;i<results.table1.length;i++){%>
+                <% for(var i=results.table1.length-10;i<results.table1.length;i++){%>
 
                 <tr>
-                    <td><%= results.table1[i].pressure%></td>
                     <td><%= results.table1[i].temperature%></td>
+                    <td><%= results.table1[i].pressure%></td>
                     <td><%= results.table1[i].humidity%></td>
                     <td><%= results.table1[i].lux%></td>
                 </tr>
