@@ -37,7 +37,7 @@
                     <!-- Main menu -->
                     <li><a href="/dashboard">Home</a></li>
                     <li><a href="/devices">Devices</a></li>
-                    <li class="current"><a href="/newdevice">Add new device</a></li>
+                    <li class="current"><a href="/dashboard">Add new device</a></li>
                     <li><a href="/display">Tables</a></li>
                     <li><a href="buttons.html">About</a></li>
 
@@ -47,35 +47,24 @@
         <div>
           <center>
             <h3>Node Details</h3>
-            <input type="text" id="nn" placeholder="Node name" required></input><br/>
-            <input type="text" id="sn1" placeholder="Sensor 1" required></input><br/>
-            <input type="text" id="sn2" placeholder="Sensor 2"></input><br/>
-            <input type="text" id="sn3" placeholder="Sensor 3"></input><br/>
-            <input type="text" id="sn4" placeholder="Sensor 4"></input><br/>
-            <h3>Mesh Details</h3>
-            <input type="text" id="mn" placeholder="Mesh Name" required></input><br/>
-            <input type="text" id="mi" placeholder="Mesh ID" required></input><br/>
-            <input type="text" id="mk" placeholder="Mesh Key" required></input><br/>
-            <h3>PKI Authentication</h3>
-            <input type="text" id="pki" placeholder="PKI Key" required></input><br/><br/>
-            <button onclick="myFunction()">Submit</button>
+            <form action= /success method="get">
+              <input type="text" id="nn" placeholder="Node name" required></input><br/>
+              <input type="text" id="sn1" placeholder="Sensor 1" required></input><br/>
+              <input type="text" id="sn2" placeholder="Sensor 2"></input><br/>
+              <input type="text" id="sn3" placeholder="Sensor 3"></input><br/>
+              <input type="text" id="sn4" placeholder="Sensor 4"></input><br/>
+              <h3>Mesh Details</h3>
+              <input type="text" id="mn" placeholder="Mesh Name" required></input><br/>
+              <input type="text" id="mi" placeholder="Mesh ID" required></input><br/>
+              <input type="text" id="mk" placeholder="Mesh Key" required></input><br/>
+              <input type="submit"></input>
+            </form>
+
           </center>
 
         </div>
 
     </div>
 </div>
-<script>
-function myFunction() {
-    console.log("Text");
-    var mn=document.getElementById("mn").value;
-    var mi=document.getElementById("mi").value;
-    var mk=document.getElementById("mk").value;
-    var url="http://localhost:8080/?mesh-name="+mn+"&mesh-id="+mi+"mesh-key"+mk;
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET",url, true);
-    xhr.send();
-}
-</script>
 </body>
 </html>

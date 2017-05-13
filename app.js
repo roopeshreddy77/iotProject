@@ -56,6 +56,15 @@ app.get('/newdevice', function(req, res, next){
   res.render('newdevice');
 });
 
+app.get('/success', function(req, res, next){
+  res.render('success');
+});
+
+app.get('/failure', function(req, res, next){
+  res.render('failure');
+});
+
+
 
 
 
